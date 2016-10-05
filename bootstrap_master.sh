@@ -5,7 +5,7 @@ echo "Hello world"
 sudo apt-get update
 
 #Install Git
-sudo apt-get install git
+sudo apt-get -y install git
 
 #Install Jira
 cd /tmp/shared
