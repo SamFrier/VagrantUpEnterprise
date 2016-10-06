@@ -1,15 +1,15 @@
 class maven {
 	
 	$PATH="/usr/share/puppet/modules/maven/files/"
-	file { "${PATH}maven.tar.gz":
+	file { "/opt/maven.tar.gz":
                 ensure => 'present',
-		source => "${PATH}maven.tar.gz",
+		source => "/tmp/shared/maven.tar.gz",
                 before => Exec['installM'],
         }
 
-	file { "${PATH}installMaven.sh":
+	file { "/opt/installMaven.sh":
 		ensure => 'present',
-		source => "${PATH}installMaven.sh",
+		source => "/tmp/shared/installMaven.sh",
 		owner => 'root',
 		group => 'root',
 		mode => '0777',
@@ -18,10 +18,9 @@ class maven {
 	}
 
 	exec { 'installM':
-		cwd => $PATH,
+		cwd => '/opt',
 		path => '/usr/bin',
 		provider => shell,
 		command => './installMaven.sh',
-		logoutput => true,
 	}
 }
