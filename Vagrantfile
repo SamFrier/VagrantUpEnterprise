@@ -17,7 +17,7 @@ Vagrant.configure(2) do |config|
         master.provision :shell, path: "bootstrap_master.sh"
 
         master.vm.provider :virtualbox do |vbox|
-            vbox.name = "Vagrant Up Master"
+            vbox.name = "VUMaster"
         end
     end
 
@@ -37,7 +37,7 @@ Vagrant.configure(2) do |config|
         agent2.provision :shell, path: "bootstrap_agent.sh"
 
         agent2.vm.provider :virtualbox do |vbox|
-            vbox.name = "Vagrant Up Agent 2"
+            vbox.name = "VUAgent2"
         end
     end
 
@@ -47,7 +47,7 @@ Vagrant.configure(2) do |config|
         agent3.provision :shell, path: "bootstrap_agent.sh"
 
         agent3.vm.provider :virtualbox do |vbox|
-            vbox.name = "Vagrant Up Agent 3"
+            vbox.name = "VUAgent3"
         end
     end
 
