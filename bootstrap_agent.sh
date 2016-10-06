@@ -14,7 +14,7 @@ sed -i "1s/^/127.0.0.1	$NAME	puppet\n/" /etc/hosts
 sed -i "1s/^/192.168.1.23	vumaster.qac.local	puppetmaster\n/" /etc/hosts
 
 #Edit the conf file
-sed -i 's/[main]/[main]\nserver=vumaster.qac.local/g' /etc/puppet/puppet.conf
+sed -i 's/ain]/ain]\nserver=vumaster.qac.local/g' /etc/puppet/puppet.conf
 
 # install git
 sudo apt-get install -y git
