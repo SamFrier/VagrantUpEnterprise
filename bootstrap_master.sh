@@ -31,3 +31,6 @@ sudo apt-get -y install git
 cd /tmp/shared
 chmod a+x jira.bin
 ./jira.bin -q -varfile response.varfile
+
+#Copy over the necessary modules
+sudo cp -r /tmp/shared/modules /etc/puppet
