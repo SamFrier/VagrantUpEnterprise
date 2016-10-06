@@ -2,8 +2,8 @@
 
 cd /opt/
 sudo tar xvf mysql.tar
-sudo dpkg-preconfigure mysql-community-server_*.deb # might need to automate user input here!!!
+export DEBIAN_FRONTEND="noninteractive"
+sudo -E dpkg-preconfigure mysql-community-server_*.deb # NB: this currently sets no root password!
 sudo dpkg -i mysql-{common,community-client,client,community-server,server}_*.deb
 sudo apt-get -f install -y
-sudo dpkg -i mysql-{common,community-client,client,community-server,server}_*.de
-b # likewise
+sudo dpkg -i mysql-{common,community-client,client,community-server,server}_*.deb
