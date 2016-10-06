@@ -4,6 +4,8 @@ SITE='/etc/puppet/manifests'
 echo "Setting up Master"
 
 sudo apt-get update
+sudo apt-get install -y openssh-server openssh-client
+sudo ufw disable
 
 #Install puppet
 sudo apt-get install -y puppet puppetmaster
