@@ -1,4 +1,6 @@
 class maven {
+
+        require java
 	
 	file { "/opt/maven.tar.gz":
                 ensure => 'present',
