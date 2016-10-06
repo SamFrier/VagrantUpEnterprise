@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-echo "Hello world"
+echo "Setting up Master"
 
 sudo apt-get update
 
 #Install puppet
 sudo apt-get install -y puppet puppetmaster
 #Edit the hosts file
+echo "Editing hosts file..."
 sed -i '1s/^/127.0.0.1	vumaster.qac.local	puppetmaster\n192.168.1.20	vumaster.qac.local	puppetmaster\n/' /etc/hosts
 
 #Install Git
