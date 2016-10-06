@@ -1,8 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 echo "Hello world"
-ADDRESS=$(facter ipaddress_eth1)
-NAME=$(facter fqdn)
 
 sudo apt-get update
 sudo apt-get install -y openssh-server openssh-client
@@ -11,6 +9,8 @@ sudo ufw disable
 #Install puppet
 sudo apt-get install -y puppet
 #Edit the hosts file
+ADDRESS=$(facter ipaddress_eth1)
+NAME=$(facter fqdn)
 sed -i "1s/^/$ADDRESS	$NAME	puppet\n/" /etc/hosts
 sed -i "1s/^/127.0.0.1	$NAME	puppet\n/" /etc/hosts
 sed -i "1s/^/192.168.1.20	vumaster.qac.local	puppetmaster\n/" /etc/hosts
