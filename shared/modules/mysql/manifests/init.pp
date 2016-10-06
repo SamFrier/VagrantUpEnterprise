@@ -26,6 +26,6 @@ class mysql::install {
 
     exec { '/opt/install_mysql.sh':
         provider => shell,
-        # NEED ONLYIF HERE!!!!
+        onlyif => '! mysql -V',
     }
 }
