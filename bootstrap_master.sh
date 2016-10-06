@@ -12,7 +12,7 @@ echo "Editing hosts file..."
 sed -i '1s/^/127.0.0.1	vumaster.qac.local	puppetmaster\n192.168.1.20	vumaster.qac.local	puppetmaster\n/' /etc/hosts
 
 #Add to site.pp
-echo "node 'vuagent1.qac.local', 'vuagent2.qac.local', 'vuagent.qac.local' {">>$SITE/site.pp
+echo "node 'vuagent1.qac.local', 'vuagent2.qac.local', 'vuagent3.qac.local' {">>$SITE/site.pp
 echo "	include java">>$SITE/site.pp
 echo "	include maven">>$SITE/site.pp
 echo "	include git">>$SITE/site.pp
