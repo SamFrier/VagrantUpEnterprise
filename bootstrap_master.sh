@@ -16,6 +16,7 @@ echo "autosign = true">>/etc/puppet/puppet.conf
 
 #Add to site.pp
 echo "node 'vuagent1.qac.local', 'vuagent2.qac.local', 'vuagent3.qac.local' {">>$SITE/site.pp
+echo "	include jenkins">>$SITE/site.pp
 echo "	include java">>$SITE/site.pp
 echo "	include maven">>$SITE/site.pp
 echo "	include git">>$SITE/site.pp
