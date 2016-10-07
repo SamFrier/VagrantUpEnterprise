@@ -9,9 +9,10 @@ sudo ufw disable
 
 #Install puppet
 sudo apt-get install -y puppet puppetmaster
-#Edit the hosts file
+#Edit the hosts and conf files
 echo "Editing hosts file..."
 sed -i '1s/^/127.0.0.1	vumaster.qac.local	puppetmaster\n192.168.1.20	vumaster.qac.local	puppetmaster\n/' /etc/hosts
+echo "autosign = true">>/etc/puppet/puppet.conf
 
 #Add to site.pp
 echo "node 'vuagent1.qac.local', 'vuagent2.qac.local', 'vuagent3.qac.local' {">>$SITE/site.pp
@@ -21,7 +22,7 @@ echo "	include git">>$SITE/site.pp
 echo "	include jira">>$SITE/site.pp
 echo "	include nexus">>$SITE/site.pp
 echo "	include bamboo">>$SITE/site.pp
-echo "	include sql">>$SITE/site.pp
+echo "	include mysql">>$SITE/site.pp
 echo "}">>$SITE/site.pp
 
 #Copy over the necessary modules

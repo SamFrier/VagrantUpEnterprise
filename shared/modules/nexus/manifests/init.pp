@@ -21,5 +21,6 @@ class nexus {
 		path => '/usr/bin',
 		provider => shell,
 		command => './installNexus.sh',
+                onlyif => '! -d /opt/nexus-3.0.2-02',
 	}
 }

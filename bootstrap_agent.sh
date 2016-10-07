@@ -18,5 +18,9 @@ sed -i "1s/^/192.168.1.20	vumaster.qac.local	puppetmaster\n/" /etc/hosts
 #Edit the conf file
 sed -i 's/ain]/ain]\nserver=vumaster.qac.local/g' /etc/puppet/puppet.conf
 
+#Connect to the master
 sudo puppet agent --test --server=vumaster.qac.local
-ping 192.168.1.20 -n 1
+sudo service puppet stop
+sudo service puppet start
+sudo puppet agent --enable
+sudo puppet agent -t
