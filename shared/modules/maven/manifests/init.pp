@@ -23,5 +23,6 @@ class maven {
 		path => '/usr/bin',
 		provider => shell,
 		command => './installMaven.sh',
+		onlyif => '! mvn -version',
 	}
 }
