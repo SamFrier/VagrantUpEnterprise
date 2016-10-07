@@ -5,7 +5,7 @@ class mysql {
 class mysql::install {
     file { '/opt/mysql.tar':
         ensure => present,
-        source => 'puppet:///modules/mysql/mysql-server-5.7.15-1ubuntu14.04_amd64.deb-bundle.tar',
+        source => 'puppet:///modules/mysql/mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle',                           
         owner => 'root',
         group => 'root',
         before => Exec['/opt/install_mysql.sh'],
