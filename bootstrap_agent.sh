@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Hello world"
+echo "Setting up an agent"
 
 sudo apt-get update
 sudo apt-get install -y openssh-server openssh-client
@@ -18,5 +18,5 @@ sed -i "1s/^/192.168.1.20	vumaster.qac.local	puppetmaster\n/" /etc/hosts
 #Edit the conf file
 sed -i 's/ain]/ain]\nserver=vumaster.qac.local/g' /etc/puppet/puppet.conf
 
-# install git
-sudo apt-get install -y git
+sudo puppet agent --test --server=vumaster.qac.local
+ping 192.168.1.20 -n 1
