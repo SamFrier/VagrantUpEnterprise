@@ -1,5 +1,5 @@
 class jira {
-        $FILE="/usr/share/puppet/modules/jira/files"
+        $FILE="puppet:///modules/jira"
         Exec {
                 path => ['/usr/bin', '/bin'],
         }
