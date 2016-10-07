@@ -7,9 +7,18 @@ Description of files in this repo:
 - shared: the shared folder that will be loaded onto the master VM
     - shared/modules: Puppet modules that will be copied into the master's Puppet directory
 
-IMPORTANT THINGS TO NOTE:
-- This repository currently doesn't contain the tar files needed to install the software as these are too large to upload, but these will be added before submitting
-- The MySQL database(s) created do not have any root password set
+To automatically set up the virtual machines and install all modules, simply type "vagrant up" in the top-level directory of this repo.
+Before doing this, however, please ensure the following:
+- You have the Ubuntu disk image present in your computer's C:/Users/[user]/.vagrant.d/boxes directory
+- All of the installers are copied into their respective folders (see below).
 
-NB: find out the versions of Vagrant and VirtualBox on Aaron's computer!
-Also work out how to put the chad-thompson/ubuntu files in the right place on Aaron's machine
+NOTE: the "files" directories for each module don't currently contain the required installers due to GitHub's file size limitations. Before running "vagrant up", please copy the following files into each module's "files" directory:
+- bamboo: atlassian-bamboo-5.13.2.tar.gz
+- java: java.tar.gz
+- jira: jira.bin
+- maven: maven.tar.gz
+- mysql: mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle.tar
+- nexus: nexus-3.0.2-02-unix.tar.gz
+
+Other things to note:
+- The MySQL databases created do not have any root password set
