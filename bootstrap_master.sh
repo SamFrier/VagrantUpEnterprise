@@ -24,13 +24,5 @@ echo "	include bamboo">>$SITE/site.pp
 echo "	include sql">>$SITE/site.pp
 echo "}">>$SITE/site.pp
 
-#Install Git
-sudo apt-get -y install git
-
-#Install Jira
-cd /tmp/shared
-chmod a+x jira.bin
-./jira.bin -q -varfile response.varfile
-
 #Copy over the necessary modules
 sudo cp -r /tmp/shared/modules /etc/puppet
