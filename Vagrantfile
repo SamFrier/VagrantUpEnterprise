@@ -12,9 +12,9 @@ Vagrant.configure(2) do |config|
     end
 
     config.vm.define "master" do |master|
-        master.hostname = "vumaster.qac.local"
-        master.network :public_network, ip: "192.168.1.20"
-        master.provision :shell, path: "bootstrap_master.sh"
+        master.vm.hostname = "vumaster.qac.local"
+        master.vm.network :public_network, ip: "192.168.1.20"
+        master.vm.provision :shell, path: "bootstrap_master.sh"
 
         master.vm.provider :virtualbox do |vbox|
             vbox.name = "VUMaster"
@@ -22,9 +22,9 @@ Vagrant.configure(2) do |config|
     end
 
     config.vm.define "agent1" do |agent1|
-        agent1.hostname = "vuagent1.qac.local"
-        agent1.network :public_network, ip: "192.168.1.21"
-        agent1.provision :shell, path: "bootstrap_agent.sh"
+        agent1.vm.hostname = "vuagent1.qac.local"
+        agent1.vm.network :public_network, ip: "192.168.1.21"
+        agent1.vm.provision :shell, path: "bootstrap_agent.sh"
 
         agent1.vm.provider :virtualbox do |vbox|
             vbox.name = "Vagrant Up Agent 1"
@@ -32,9 +32,9 @@ Vagrant.configure(2) do |config|
     end
 
     config.vm.define "agent2" do |agent2|
-        agent2.hostname = "vuagent2.qac.local"
-        agent2.network :public_network, ip: "192.168.1.22"
-        agent2.provision :shell, path: "bootstrap_agent.sh"
+        agent2.vm.hostname = "vuagent2.qac.local"
+        agent2.vm.network :public_network, ip: "192.168.1.22"
+        agent2.vm.provision :shell, path: "bootstrap_agent.sh"
 
         agent2.vm.provider :virtualbox do |vbox|
             vbox.name = "VUAgent2"
@@ -42,9 +42,9 @@ Vagrant.configure(2) do |config|
     end
 
     config.vm.define "agent3" do |agent3|
-        agent3.hostname = "vuagent3.qac.local"
-        agent3.network :public_network, ip: "192.168.1.23"
-        agent3.provision :shell, path: "bootstrap_agent.sh"
+        agent3.vm.hostname = "vuagent3.qac.local"
+        agent3.vm.network :public_network, ip: "192.168.1.23"
+        agent3.vm.provision :shell, path: "bootstrap_agent.sh"
 
         agent3.vm.provider :virtualbox do |vbox|
             vbox.name = "VUAgent3"
