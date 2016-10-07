@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
         agent1.vm.provision :shell, path: "bootstrap_agent.sh"
 
         agent1.vm.provider :virtualbox do |vbox|
-            vbox.name = "Vagrant Up Agent 1"
+            vbox.name = "VUAgent 1"
         end
     end
 
