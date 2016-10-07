@@ -25,6 +25,7 @@ class jira {
                 cwd => "/opt",
 		provider => shell,
                 command => './jira.bin -q -varfile response.varfile',
+                onlyif => '! sudo service jira status',
         }
 }
 
