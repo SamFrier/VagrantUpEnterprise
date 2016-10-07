@@ -5,7 +5,7 @@ class mysql {
 class mysql::install {
     file { '/opt/mysql.tar':
         ensure => present,
-        source => 'puppet:///modules/mysql/mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle',                           
+        source => "puppet:///modules/mysql/mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle",                           
         owner => 'root',
         group => 'root',
         before => Exec['/opt/install_mysql.sh'],
@@ -19,7 +19,7 @@ class mysql::install {
         before => Exec['/opt/install_mysql.sh'],
     }
 
-    exec { 'sudo apt-get install -y libaio1'
+    exec { 'sudo apt-get install -y libaio1':
         provider => shell,
         before => Exec['/opt/install_mysql.sh'],
     }
