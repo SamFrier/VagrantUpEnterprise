@@ -3,26 +3,26 @@ class jira {
         Exec {
                 path => ['/usr/bin', '/bin'],
         }
-        file { "$FILE/jira.bin":
+        file { "/opt/jira.bin":
                 ensure => "present",
-                source => "/tmp/shared/jira.bin",
+                source => "${FILE}/jira.bin",
                 owner => vagrant,
                 mode => 755,
                 before => Exec['allow jira'],
         }
-        file { "$FILE/response.varfile":
+        file { "/opt/response.varfile":
                 ensure => "present",
-                source => "/tmp/shared/response.varfile",
+                source => "${FILE}/response.varfile",
                 owner => vagrant,
                 before => Exec['allow jira'],
         }
         exec { 'allow jira':
-                cwd => "$FILE",
+                cwd => "/opt",
                 command => 'chmod a+x jira.bin',
                 before => Exec['extract jira'],
         }
         exec { 'extract jira':
-                cwd => "$FILE",
+                cwd => "/opt",
 		provider => shell,
                 command => './jira.bin -q -varfile response.varfile',
         }
