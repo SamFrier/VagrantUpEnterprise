@@ -21,7 +21,7 @@ echo "	include git">>$SITE/site.pp
 echo "	include jira">>$SITE/site.pp
 echo "	include nexus">>$SITE/site.pp
 echo "	include bamboo">>$SITE/site.pp
-echo "	include sql">>$SITE/site.pp
+echo "	include mysql">>$SITE/site.pp
 echo "}">>$SITE/site.pp
 
 #Copy over the necessary modules
