@@ -1,5 +1,5 @@
 class bamboo::install {
-
+    notify{'installing bamboo...':}
     file { '/opt/BambooInstall.sh':
         ensure => present,
         owner => 'root',

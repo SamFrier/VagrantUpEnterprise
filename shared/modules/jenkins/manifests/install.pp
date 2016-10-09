@@ -1,6 +1,6 @@
 class jenkins::install {
 
-notify {'running':}
+notify {'installing Jenkins':}
 file {'/opt/jenkins_2.1_all.deb':
 ensure => present,
 owner => 'root',
