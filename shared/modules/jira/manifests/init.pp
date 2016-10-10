@@ -1,5 +1,5 @@
 class jira {
-	notify {'installing jira...':}
+
         $FILE="puppet:///modules/jira"
         Exec {
                 path => ['/usr/bin', '/bin'],
