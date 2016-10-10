@@ -1,5 +1,5 @@
 class java::install {
-notify {'installing Java...":}
+
 file { '/opt/JavaInstall.sh':
 ensure => present,
 owner => 'root',
