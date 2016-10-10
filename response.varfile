@@ -8,5 +8,5 @@ sys.confirmedUpdateInstallationString=false
 sys.languageId=en
 sys.installationDir=/opt/atlassian/jira
 executeLauncherAction$Boolean=true
-httpPort$Long=8081
+httpPort$Long=8082
 portChoice=custom
