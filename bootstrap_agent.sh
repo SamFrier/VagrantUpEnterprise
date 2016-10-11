@@ -1,22 +1,18 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-echo "Setting up Master"
+echo "Setting up an agent"
 
 sudo apt-get update
 sudo apt-get install -y openssh-server openssh-client
+sudo apt-get install -y curl
 sudo ufw disable
-
-wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
-sudo dpkg -i puppetlabs-release-precise.deb
-sudo apt-get -y update
 
 sudo chown -R vagrant /home/vagrant/.ssh
 sudo chmod 0700 /home/vagrant/.ssh
 sudo chmod 0600 /home/vagrant/.ssh/authorized_keys
 
-#Edit the hosts and conf files
-echo "Editing hosts file..."
-sed -i '1s/^/127.0.0.1	entmaster.qac.local	entmaster\n192.168.1.108	entmaster.qac.local	entmaster\n/' /etc/hosts
+#Install puppet
+sudo apt-get install -y puppet
 
 echo "Editing hosts file..."
 #Edit the hosts file
@@ -26,14 +22,11 @@ sed -i "1s/^/192.168.1.108	entmaster.qac.local	entmaster\n/" /etc/hosts
 echo "Editing the puppet.conf file..."
 sed -i 's/ain]/ain]\nserver=entmaster.qac.local/g' /etc/puppet/puppet.conf
 
-sudo cp /tmp/shared/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64.tar.gz /opt
-
-cd /opt
-sudo tar -zxvf /opt/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64.tar.gz
-sudo /opt/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64/puppet-enterprise-installer -a /tmp/shared/answers.install
-
-#Copy over the necessary modules
-sudo cp -r /tmp/shared/modules /etc/puppetlabs/code/environments/production
-
-echo "Editing puppet.conf file..."
-echo "autosign = true">>/etc/puppetlabs/puppet/puppet.conf
+#Connect to the master
+echo "Managing communications with master client..."
+sudo curl -k https://entmaster.qac.local:8140/packages/current/install.bash | sudo bash
+sudo puppet agent --test --server=entmaster.qac.local
+sudo service puppet stop
+sudo service puppet start
+sudo puppet agent --enable
+sudo puppet agent -t
