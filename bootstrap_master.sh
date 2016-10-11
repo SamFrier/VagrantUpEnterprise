@@ -1,32 +1,36 @@
 #!/usr/bin/env bash
 
-SITE='/etc/puppet/manifests'
 echo "Setting up Master"
 
 sudo apt-get update
 sudo apt-get install -y openssh-server openssh-client
 sudo ufw disable
 
-#Install puppet
-sudo apt-get install -y puppet puppetmaster
+wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+sudo dpkg -i puppetlabs-release-precise.deb
+sudo apt-get -y update
+
+sudo chown -R vagrant /home/vagrant/.ssh
+sudo chmod 0700 /home/vagrant/.ssh
+sudo chmod 0600 /home/vagrant/.ssh/authorized_keys
+
 #Edit the hosts and conf files
 echo "Editing hosts file..."
-sed -i '1s/^/127.0.0.1	vumaster.qac.local	puppetmaster\n192.168.1.20	vumaster.qac.local	puppetmaster\n/' /etc/hosts
-echo "Editing puppet.conf file..."
-echo "autosign = true">>/etc/puppet/puppet.conf
+sed -i '1s/^/127.0.0.1	entmaster.qac.local	entmaster\n192.168.1.108	entmaster.qac.local	entmaster\n/' /etc/hosts
 
-#Add to site.pp
-echo "Configuring site.pp..."
-echo "node 'vuagent1.qac.local', 'vuagent2.qac.local', 'vuagent3.qac.local' {">>$SITE/site.pp
-echo "	include jenkins">>$SITE/site.pp
-echo "	include java">>$SITE/site.pp
-echo "	include maven">>$SITE/site.pp
-echo "	include git">>$SITE/site.pp
-echo "	include jira">>$SITE/site.pp
-echo "	include nexus">>$SITE/site.pp
-echo "	include bamboo">>$SITE/site.pp
-echo "	include mysql">>$SITE/site.pp
-echo "}">>$SITE/site.pp
+echo "Editing hosts file..."
+#Edit the hosts file
+sed -i "1s/^/192.168.1.108	entmaster.qac.local	entmaster\n/" /etc/hosts
+
+#Edit the conf file
+echo "Editing the puppet.conf file..."
+sed -i 's/ain]/ain]\nserver=entmaster.qac.local/g' /etc/puppet/puppet.conf
+
+sudo cp /tmp/shared/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64.tar.gz /opt
+
+cd /opt
+sudo tar -zxvf /opt/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64.tar.gz
+sudo /opt/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64/puppet-enterprise-installer -a /tmp/shared/answers.install
 
 #Copy over the necessary modules
-sudo cp -r /tmp/shared/modules /etc/puppet
+sudo cp -r /tmp/shared/modules /etc/puppetlabs/code/environments/production
