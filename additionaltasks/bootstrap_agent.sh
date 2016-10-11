@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-echo "Plums"
-
 sudo ufw disable
 sudo apt-get update
 sudo apt-get install -y openssh-server
