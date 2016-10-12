@@ -25,3 +25,4 @@ Other things to note:
 - The MySQL databases created do not have any root password set
 
 When installation is complete, log into https://entmaster.qac.local on the master VM with user: admin, password: vagrantup. Go to the "Nodes" tab and press "Accept All" to connect the nodes to the master.
+To access MCollective commands, run the command "sudo -i -u peadmin".
