@@ -22,10 +22,6 @@ echo "Editing hosts file..."
 #Edit the hosts file
 sed -i "1s/^/192.168.1.108	entmaster.qac.local	entmaster\n/" /etc/hosts
 
-#Edit the conf file
-echo "Editing the puppet.conf file..."
-sed -i 's/ain]/ain]\nserver=entmaster.qac.local/g' /etc/puppet/puppet.conf
-
 sudo cp /tmp/shared/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64.tar.gz /opt
 
 cd /opt
@@ -34,3 +30,7 @@ sudo /opt/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64/puppet-enterprise-instal
 
 #Copy over the necessary modules
 sudo cp -r /tmp/shared/modules /etc/puppetlabs/code/environments/production
+
+#Edit the conf file
+echo "Editing the puppet.conf file..."
+sed -i 's/ain]/ain]\nserver=entmaster.qac.local/g' /etc/puppetlabs/puppet/puppet.conf
