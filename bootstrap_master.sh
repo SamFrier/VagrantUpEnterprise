@@ -2,7 +2,7 @@
 
 echo "Setting up Master"
 
-sudo apt-get update
+sudo apt-get -y update
 sudo apt-get install -y openssh-server openssh-client
 sudo ufw disable
 
@@ -30,9 +30,11 @@ sudo /opt/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64/puppet-enterprise-instal
 
 #Copy over the necessary modules
 sudo cp -r /tmp/shared/modules /etc/puppetlabs/code/environments/production
+sudo cp /tmp/shared/installZabbixServer.sh /opt/installZabbixServer.sh
+sudo cp /tmp/shared/zabbix-3.2.1.tar.gz /opt/zabbix-3.2.1.tar.gz
 
 #Edit the conf file
 echo "Editing the puppet.conf file..."
 sed -i 's/ain]/ain]\nserver=entmaster.qac.local/g' /etc/puppetlabs/puppet/puppet.conf
 
-/tmp/shared/installZabbixServer.sh
+sudo ./installZabbixServer.sh
