@@ -1,13 +1,13 @@
 Description of files in this repo:
 
-- Vagrantfile: sets up the master VM and 3 agent VMs on a single machine.
+- Vagrantfile: sets up the master VM and a number of agent VMs on a single machine.
 - bootstrap_master.sh: does any relevant setup on the master VM
 - bootstrap_agent.sh: does any relevant setup on any and all agent VMs
 - response.varfile: required to set up Jira without user input
 - shared: the shared folder that will be loaded onto the master VM
     - shared/modules: Puppet modules that will be copied into the master's Puppet directory
 
-To automatically set up the virtual machines and install all modules, simply type "vagrant up" in the top-level directory of this repo.
+To automatically set up the virtual machines and install all modules, simply double click the startup.sh file.
 Before doing this, however, please ensure the following:
 - You have the Ubuntu disk image present in your computer's C:/Users/[user]/.vagrant.d/boxes directory
 - All of the installers are copied into their respective folders (see below).
@@ -17,6 +17,13 @@ NOTE: the "files" directories for each module do not currently contain the requi
 - java: java.tar.gz
 - jenkins: jenkins_2.1_all.deb
 - jira: jira.bin and response.varfile
+<<<<<<< HEAD
+- maven.tar.gz
+- mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle.tar
+- nexus-3.0.2-02-unix.tar.gz
+- zabbix-3.2.1.tar.gz
+- puppet-enterprise-2015.2.0-ubuntu-14.0-amd64.tar.gz
+=======
 - maven: maven.tar.gz
 - mysql: mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle.tar
 - nexus: nexus-3.0.2-02-unix.tar.gz
@@ -24,6 +31,7 @@ NOTE: the "files" directories for each module do not currently contain the requi
 
 The general 'shared' folder should also contain a copy of zabbix-3.2.1.tar.gz
 
+>>>>>>> 58eb66c4516b65d342cf160626addf7476b56762
 
 Other things to note:
 - The MySQL databases created do not have any root password set
