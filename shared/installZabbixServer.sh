@@ -38,10 +38,6 @@ sudo zabbix_server
 sudo apt-get install -y apache2 apache2-doc apache2-utils
 sudo sed -i 's/KeepAlive On/KeepAlive Off/g' /etc/apache2/apache2.conf
 sudo apt-get install -y php5-mysql php5-gd
-sudo sed -i 's/max_size = 8/max_size = 16/g' /etc/php5/apache2/php.ini
-sudo sed -i 's/on_time = 30/on_time = 300/g' /etc/php5/apache2/php.ini
-sudo sed -i 's/max_input_time = 60/max_input_time = 300/g' /etc/php5/apache2/php.ini
-sudo sed -i 's/;date.timezone =/date.timezone = UTC/g' /etc/php5/apache2/php.ini
 
 sudo a2dissite 000-default.conf
 sudo service apache2 reload
@@ -51,6 +47,11 @@ sudo apt-get install -y php5
 sudo mkdir /var/www/zabbix
 cd frontends/php
 sudo cp -a . /var/www/zabbix
+
+sudo sed -i 's/max_size = 8/max_size = 16/g' /etc/php5/apache2/php.ini
+sudo sed -i 's/on_time = 30/on_time = 300/g' /etc/php5/apache2/php.ini
+sudo sed -i 's/max_input_time = 60/max_input_time = 300/g' /etc/php5/apache2/php.ini
+sudo sed -i 's/;date.timezone =/date.timezone = UTC/g' /etc/php5/apache2/php.ini
 
 sudo service apache2 restart
 
