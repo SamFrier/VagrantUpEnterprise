@@ -16,6 +16,7 @@ class mysql::install {
         source => 'puppet:///modules/mysql/install_mysql.sh',
         owner => 'root',
         group => 'root',
+	mode => '755',
         before => Exec['/opt/install_mysql.sh'],
     }
 
