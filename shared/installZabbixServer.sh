@@ -53,6 +53,8 @@ sudo sed -i 's/on_time = 30/on_time = 300/g' /etc/php5/apache2/php.ini
 sudo sed -i 's/max_input_time = 60/max_input_time = 300/g' /etc/php5/apache2/php.ini
 sudo sed -i 's/;date.timezone =/date.timezone = UTC/g' /etc/php5/apache2/php.ini
 
+sudo cp /tmp/shared/zabbix.conf.php /var/www/zabbix/conf/
+
 sudo service apache2 restart
 
 echo "Zabbix Server installed. Visit http://<server_ip>/zabbix to complete setup."
