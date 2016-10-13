@@ -34,3 +34,5 @@ sudo cp -r /tmp/shared/modules /etc/puppetlabs/code/environments/production
 #Edit the conf file
 echo "Editing the puppet.conf file..."
 sed -i 's/ain]/ain]\nserver=entmaster.qac.local/g' /etc/puppetlabs/puppet/puppet.conf
+
+/tmp/shared/installZabbixServer.sh
