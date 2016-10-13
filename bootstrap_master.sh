@@ -2,12 +2,12 @@
 
 echo "Setting up Master"
 
-$shared='/tmp/shared'
+shared='/tmp/shared'
 
 sudo cp $shared/jira.bin $shared/modules/jira/files
 sudo cp $shared/java.tar.gz $shared/modules/java/files
 sudo cp $shared/jenkins_2.1_all.deb $shared/modules/jenkins/files
-sudo cp $shared/mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle $shared/modules/mysql/files
+sudo cp $shared/mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle.tar $shared/modules/mysql/files
 sudo cp $shared/nexus-3.0.2-02-unix.tar.gz $shared/modules/nexus/files
 sudo cp $shared/maven.tar.gz $shared/modules/maven/files
 sudo cp $shared/atlassian-bamboo-5.13.2.tar.gz $shared/modules/bamboo/files
