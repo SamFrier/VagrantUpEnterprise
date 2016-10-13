@@ -19,6 +19,7 @@ NOTE: Make sure the following files are located in the "shared" folder provided 
 - mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle.tar
 - nexus-3.0.2-02-unix.tar.gz
 - zabbix-3.2.1.tar.gz
+- puppet-enterprise-2015.2.0-ubuntu-14.0-amd64.tar.gz
 
 Other things to note:
 - The MySQL databases created do not have any root password set
