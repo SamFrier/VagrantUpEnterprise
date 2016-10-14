@@ -12,10 +12,11 @@ To automatically set up the virtual machines and install all modules, simply dou
 Before doing this, however, please ensure the following:
 - You have the Ubuntu disk image present in your computer's C:/Users/[user]/.vagrant.d/boxes directory
 - Make sure the following files are located in the "shared" folder provided in the repository
-    - java: java.tar.gz
-    - jenkins: jenkins_2.1_all.deb
-    - jira: jira.bin and response.varfile
+    - java.tar.gz
+    - jenkins_2.1_all.deb
+    - jira.bin and response.varfile
     - maven.tar.gz
+    - atlassian-bamboo-5.13.2.tar.gz
     - mysql-server_5.7.15-1ubuntu14.04_amd64.deb-bundle.tar
     - nexus-3.0.2-02-unix.tar.gz
     - zabbix-3.2.1.tar.gz
