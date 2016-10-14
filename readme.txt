@@ -25,6 +25,7 @@ Before doing this, however, please ensure the following:
 
 PUPPET ENTERPRISE INSTRUCTIONS
 To use Puppet Enterprise access the URL = https://entmaster.qac.local
+    - To login, the username is admin, the password is vagrantup
     - Accept the certificate under 'Nodes', 'Unsigned certificates'
     - Perform an agent test on the agents to link them (puppet agent -t)
     - Add a new group under 'Nodes'
