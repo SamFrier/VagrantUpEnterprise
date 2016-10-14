@@ -1,6 +1,7 @@
 Description of files in this repo:
 
 - Vagrantfile: sets up the master VM and a number of agent VMs on a single machine.
+    -You can define the number of agents using the AGENTS variable
 - bootstrap_master.sh: does any relevant setup on the master VM
 - bootstrap_agent.sh: does any relevant setup on any and all agent VMs
 - shared: the shared folder that will be loaded onto the master VM
