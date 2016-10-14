@@ -44,3 +44,6 @@ Ports available on 'fqdn:port': (fqdn is either 'vumaster.qac.local' or 'vuagent
 
 Zabbix server
 Zabbix site = http://fqdn/zabbix, user: Admin, password: zabbix
+
+MCollective
+- To acces the MCollective commands, type 'sudo -i -u peadmin'
