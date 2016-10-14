@@ -15,6 +15,7 @@ sudo cp $shared/zabbix-3.2.1.tar.gz $shared/modules/zabbix/files
 
 sudo apt-get -y update
 sudo apt-get install -y openssh-server openssh-client
+sudo apt-get install -y dos2unix
 sudo ufw disable
 
 wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
@@ -47,5 +48,9 @@ sudo cp /tmp/shared/zabbix-3.2.1.tar.gz /opt/zabbix-3.2.1.tar.gz
 #Edit the conf file
 echo "Editing the puppet.conf file..."
 sed -i 's/ain]/ain]\nserver=entmaster.qac.local/g' /etc/puppetlabs/puppet/puppet.conf
-
+sudo dos2unix *.sh
 sudo ./installZabbixServer.sh
+
+sudo ifdown eth1
+sudo ifup eth1
+sudo ifconfig eth1 192.168.1.20
