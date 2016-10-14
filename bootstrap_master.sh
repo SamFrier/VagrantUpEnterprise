@@ -15,6 +15,7 @@ sudo cp $shared/zabbix-3.2.1.tar.gz $shared/modules/zabbix/files
 
 sudo apt-get -y update
 sudo apt-get install -y openssh-server openssh-client
+sudo apt-get install -y dos2unix
 sudo ufw disable
 
 #update repository for puppet enterprise
@@ -29,11 +30,11 @@ sudo chmod 0600 /home/vagrant/.ssh/authorized_keys
 
 #Edit the hosts and conf files
 echo "Editing hosts file..."
-sed -i '1s/^/127.0.0.1	entmaster.qac.local	entmaster\n192.168.1.108	entmaster.qac.local	entmaster\n/' /etc/hosts
+sed -i '1s/^/127.0.0.1	entmaster.qac.local	entmaster\n192.168.1.20	entmaster.qac.local	entmaster\n/' /etc/hosts
 
 echo "Editing hosts file..."
 #Edit the hosts file
-sed -i "1s/^/192.168.1.108	entmaster.qac.local	entmaster\n/" /etc/hosts
+sed -i "1s/^/192.168.1.20	entmaster.qac.local	entmaster\n/" /etc/hosts
 
 sudo cp /tmp/shared/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64.tar.gz /opt
 
@@ -49,5 +50,9 @@ sudo cp /tmp/shared/zabbix-3.2.1.tar.gz /opt/zabbix-3.2.1.tar.gz
 #Edit the conf file
 echo "Editing the puppet.conf file..."
 sed -i 's/ain]/ain]\nserver=entmaster.qac.local/g' /etc/puppetlabs/puppet/puppet.conf
-
+sudo dos2unix *.sh
 sudo ./installZabbixServer.sh
+
+sudo ifdown eth1
+sudo ifup eth1
+sudo ifconfig eth1 192.168.1.20
