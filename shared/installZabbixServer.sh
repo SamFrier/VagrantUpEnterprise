@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing Zabbix Server"
+echo "Installing Zabbix Server."
 
 # unzip zabbix server files
 cd /opt/
