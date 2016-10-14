@@ -24,11 +24,8 @@ sed -i 's/ain]/ain]\nserver=entmaster.qac.local/g' /etc/puppet/puppet.conf
 
 #Connect to the master
 echo "Managing communications with master client..."
-<<<<<<< HEAD
-puppet agent --test --server=entmaster.qac.local
-=======
+
 sudo puppet agent --test --server=entmaster.qac.local
->>>>>>> 7cc4550dd9ef77968aecc6bc565e9dded145f923
 sudo service puppet stop
 sudo service puppet start
 sudo puppet agent --enable
