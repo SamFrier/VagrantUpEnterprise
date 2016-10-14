@@ -8,6 +8,8 @@ Description of files in this repo:
     - shared/modules: Puppet modules that will be copied into the master's Puppet directory
     - shared/installZabbixServer.sh: sets up the Zabbix server on the master VM
     - shared/setupDatabase.sql: sets up the database for the Zabbix server
+    
+Estimated finish time: 20-30mins
 
 To automatically set up the virtual machines and install all modules, simply double click the startup.sh file.
 Before doing this, however, please ensure the following:
