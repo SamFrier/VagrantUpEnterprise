@@ -56,5 +56,3 @@ sudo ./installZabbixServer.sh
 sudo ifdown eth1
 sudo ifup eth1
 sudo ifconfig eth1 192.168.1.20
-nohup firefox -new-window 'https://entmaster.qac.local'
-nohup firefox -new-tab 'http://entmaster.qac.local/zabbix'
