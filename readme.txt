@@ -29,7 +29,8 @@ To use Puppet Enterprise access the URL = https://entmaster.qac.local
     - Accept the certificate under 'Nodes', 'Unsigned certificates'
     - Perform an agent test on the agents to link them (puppet agent -t)
     - Add a new group under 'Nodes'
-    - In that new group pin the nodes to the group and add classes you want
+    - Run another agent test so it is pinnable
+    - In that new group pin the nodes to the group (in Rules) and add classes you want (in Classes)
     - Perform another agent test to install those classes
 
 Other things to note:
