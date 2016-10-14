@@ -32,7 +32,7 @@ sed -i '1s/^/127.0.0.1	entmaster.qac.local	entmaster\n192.168.1.20	entmaster.qac
 
 echo "Editing hosts file..."
 #Edit the hosts file
-sed -i "1s/^/192.168.1.108	entmaster.qac.local	entmaster\n/" /etc/hosts
+sed -i "1s/^/192.168.1.20	entmaster.qac.local	entmaster\n/" /etc/hosts
 
 sudo cp /tmp/shared/puppet-enterprise-2015.2.0-ubuntu-14.04-amd64.tar.gz /opt
 
