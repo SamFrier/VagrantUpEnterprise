@@ -40,7 +40,7 @@ Other things to note:
 - The MySQL databases created on the agents do not have any root password set
 - The Zabbix database on the master has user 'zabbix' with password 'vagrantup'
 
-Ports available on 'fqdn:port': (fqdn is either 'vumaster.qac.local' or 'vuagent#.qac.local' where # is agent number)
+Ports available on 'fqdn:port': (fqdn is either 'entmaster.qac.local' or 'vuagent#.qac.local' where # is agent number)
 - Jira = 8082
 - Jenkins = 8080
 - Nexus = 8081
