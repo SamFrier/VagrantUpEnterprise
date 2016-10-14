@@ -16,7 +16,7 @@ sudo apt-get install -y puppet
 
 echo "Editing hosts file..."
 #Edit the hosts file
-sed -i "1s/^/192.168.1.108	entmaster.qac.local	entmaster\n/" /etc/hosts
+sed -i "1s/^/192.168.1.20	entmaster.qac.local	entmaster\n/" /etc/hosts
 
 #Edit the conf file
 echo "Editing the puppet.conf file..."
