@@ -22,14 +22,18 @@ Before doing this, however, please ensure the following:
     - zabbix-3.2.1.tar.gz
     - puppet-enterprise-2015.2.0-ubuntu-14.04-amd64.tar.gz
 
-Other things to note:
+PUPPET ENTERPRISE INSTRUCTIONS
+To use Puppet Enterprise access the URL = https://entmaster.qac.local
+    - Accept the certificate under 'Nodes', 'Unsigned certificates'
+    - Perform an agent test on the agents to link them (puppet agent -t)
+    - Add a new group under 'Nodes'
+    - In that new group pin the nodes to the group and add classes you want
+    - Perform another agent test to install those classes
 
+Other things to note:
 - The MySQL databases created do not have any root password set
 - The MySQL databases created on the agents do not have any root password set
 - The Zabbix database on the master has user 'zabbix' with password 'vagrantup'
-
-Access to Puppet Enterprise :
-URL = https://entmaster.qac.local
 
 Ports available on 'fqdn:port': (fqdn is either 'vumaster.qac.local' or 'vuagent#.qac.local' where # is agent number)
 - Jira = 8082
