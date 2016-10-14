@@ -28,7 +28,7 @@ sudo chmod 0600 /home/vagrant/.ssh/authorized_keys
 
 #Edit the hosts and conf files
 echo "Editing hosts file..."
-sed -i '1s/^/127.0.0.1	entmaster.qac.local	entmaster\n192.168.1.108	entmaster.qac.local	entmaster\n/' /etc/hosts
+sed -i '1s/^/127.0.0.1	entmaster.qac.local	entmaster\n192.168.1.20	entmaster.qac.local	entmaster\n/' /etc/hosts
 
 echo "Editing hosts file..."
 #Edit the hosts file
