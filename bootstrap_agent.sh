@@ -4,9 +4,9 @@ echo "Setting up an agent"
 
 sudo apt-get update
 sudo apt-get install -y openssh-server openssh-client
-sudo apt-get install -y curl
 sudo ufw disable
 
+#set permissions for ssh for puppet enterprise
 sudo chown -R vagrant /home/vagrant/.ssh
 sudo chmod 0700 /home/vagrant/.ssh
 sudo chmod 0600 /home/vagrant/.ssh/authorized_keys
@@ -24,9 +24,8 @@ sed -i 's/ain]/ain]\nserver=entmaster.qac.local/g' /etc/puppet/puppet.conf
 
 #Connect to the master
 echo "Managing communications with master client..."
-#sudo curl -k https://entmaster.qac.local:8140/packages/current/install.bash | sudo bash
-sudo puppet agent --test --server=entmaster.qac.local
+puppet agent --test --server=entmaster.qac.local
 sudo service puppet stop
 sudo service puppet start
 sudo puppet agent --enable
-sudo puppet agent -t
+sudo puppet agent -t --server=entmaster.qac.local

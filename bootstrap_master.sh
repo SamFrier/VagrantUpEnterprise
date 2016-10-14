@@ -3,7 +3,7 @@
 echo "Setting up Master"
 
 shared='/tmp/shared'
-
+#move all necessary files to their respective files folders
 sudo cp $shared/jira.bin $shared/modules/jira/files
 sudo cp $shared/java.tar.gz $shared/modules/java/files
 sudo cp $shared/jenkins_2.1_all.deb $shared/modules/jenkins/files
@@ -17,10 +17,12 @@ sudo apt-get -y update
 sudo apt-get install -y openssh-server openssh-client
 sudo ufw disable
 
+#update repository for puppet enterprise
 wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
 sudo dpkg -i puppetlabs-release-precise.deb
 sudo apt-get -y update
 
+#change user permissions for ssh so puppet enterprise can access it
 sudo chown -R vagrant /home/vagrant/.ssh
 sudo chmod 0700 /home/vagrant/.ssh
 sudo chmod 0600 /home/vagrant/.ssh/authorized_keys
