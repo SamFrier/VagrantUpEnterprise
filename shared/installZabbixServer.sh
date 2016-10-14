@@ -11,7 +11,7 @@ sudo groupadd zabbix
 sudo useradd -g zabbix zabbix
 
 # install mysql on master
-sudo puppet apply /etc/puppet/modules/mysql/tests/init.pp
+sudo puppet apply /etc/puppetlabs/code/environments/production/modules/mysql/tests/init.pp
 
 # create zabbix database
 sudo cp /tmp/shared/setupDatabase.sql /opt/
