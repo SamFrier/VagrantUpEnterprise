@@ -48,6 +48,7 @@ Ports available on 'fqdn:port': (fqdn is either 'entmaster.qac.local' or 'vuagen
 
 Zabbix server
 Zabbix site = http://fqdn/zabbix, user: Admin, password: zabbix
+
 Note: hosts need to be manually added to be monitored
 
 MCollective
