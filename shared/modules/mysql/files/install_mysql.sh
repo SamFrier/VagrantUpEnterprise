@@ -1,4 +1,5 @@
 #!/bin/bash
+
 cd /opt/
 sudo tar xvf mysql.tar
 export DEBIAN_FRONTEND="noninteractive"
